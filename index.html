@@ -7,5 +7,23 @@
 <body>
     <h1>こんにちは！</h1>
     <p>これはAkkyのサイトです。</p>
-</body>
+</body<h2>投稿一覧</h2>
+<ul id="posts-list"></ul>
+
+<script>
+  fetch('https://api.github.com/repos/AKKY0919/flourishing-cucurucho-f0c65b/contents/posts')
+    .then(response => response.json())
+    .then(data => {
+      const postsList = document.getElementById('posts-list');
+      data.forEach(file => {
+        let listItem = document.createElement('li');
+        let link = document.createElement('a');
+        link.href = `https://raw.githubusercontent.com/AKKY0919/flourishing-cucurucho-f0c65b/main/posts/${file.name}`;
+        link.textContent = file.name;
+        listItem.appendChild(link);
+        postsList.appendChild(listItem);
+      });
+    })
+    .catch(error => console.error('Error:', error));
+</script>>
 </html>
