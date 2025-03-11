@@ -11,14 +11,14 @@
 <ul id="posts-list"></ul>
 
 <script>
-  fetch('https://api.github.com/repos/AKKY0919/flourishing-cucurucho-f0c65b/contents/posts')
+  fetch('https://api.github.com/repos/AKKY0919/akky-autopost/contents/posts')
     .then(response => response.json())
     .then(data => {
       const postsList = document.getElementById('posts-list');
       data.forEach(file => {
         let listItem = document.createElement('li');
         let link = document.createElement('a');
-        link.href = `https://raw.githubusercontent.com/AKKY0919/flourishing-cucurucho-f0c65b/main/posts/${file.name}`;
+        link.href = `https://raw.githubusercontent.com/AKKY0919/akky-autopost/main/posts/${file.name}`;
         link.textContent = file.name;
         listItem.appendChild(link);
         postsList.appendChild(listItem);
